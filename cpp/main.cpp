@@ -27,11 +27,11 @@ static inline ArgType bessel_j_smallz(const OrderType v, const ArgType z) {
     result -= pow(zhalf, 2) / gamma_term;
     for (int k = 2; k <= 20; k += 2) {
         factorial_term *= k;
-        gamma_term *= k;
+        gamma_term *= v + k;
         // result += ipow(zhalf, 2 * k) / (factorial_term * gamma_term);
         result += pow(zhalf, 2 * k) / (factorial_term * gamma_term);
         factorial_term *= k + 1;
-        gamma_term *= k + 1;
+        gamma_term *= v + k + 1;
         // result -= ipow(zhalf, 2 * k + 2) / (factorial_term * gamma_term);
         result -= pow(zhalf, 2 * k + 2) / (factorial_term * gamma_term);
     }

@@ -10,10 +10,10 @@ pub fn bessel_j_smallz(v: f64, z: f64) -> f64 {
     result -= zhalf.powi(2) / gamma_term;
     for k in (2..21).step_by(2) {
         factorial_term *= k as f64;
-        gamma_term *= k as f64;
+        gamma_term *= v + k as f64;
         result += zhalf.powi(2 * k) / (factorial_term * gamma_term);
         factorial_term *= (k + 1) as f64;
-        gamma_term *= (k + 1) as f64;
+        gamma_term *= v + (k + 1) as f64;
         result -= zhalf.powi(2 * k + 2) / (factorial_term * gamma_term);
     }
     result * zhalf.powf(v)
