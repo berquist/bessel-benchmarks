@@ -1,0 +1,4 @@
+from scipy.special import jv
+
+
+%timeit jv(0, 1)
