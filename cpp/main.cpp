@@ -16,11 +16,10 @@ static inline ArgType bessel_j_smallz(const OrderType v, const ArgType z) {
     using std::pow;
     using std::tgamma;
 
-    ArgType zhalf = z / 2.0;
-    ArgType result = 0.0;
+    const ArgType zhalf = z / 2.0;
     double factorial_term = 1.0;
     double gamma_term = tgamma(v + 1);
-    result += 1.0 / gamma_term;
+    ArgType result = 1.0 / gamma_term;
 
     gamma_term *= v + 1;
     // result -= ipow(zhalf, 2) / gamma_term;

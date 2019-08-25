@@ -2,10 +2,9 @@ use rgsl::gamma_beta::gamma::gamma;
 
 pub fn bessel_j_smallz(v: f64, z: f64) -> f64 {
     let zhalf = z / 2.0;
-    let mut result = 0.0;
     let mut factorial_term = 1.0;
     let mut gamma_term = gamma(v + 1.0);
-    result += 1.0 / gamma_term;
+    let mut result = 1.0 / gamma_term;
     gamma_term *= v + 1.0;
     result -= zhalf.powi(2) / gamma_term;
     for k in (2..21).step_by(2) {
